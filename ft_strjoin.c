@@ -6,7 +6,7 @@
 /*   By: nde-la-f <nde-la-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 10:48:47 by nde-la-f          #+#    #+#             */
-/*   Updated: 2023/02/22 13:11:18 by nde-la-f         ###   ########.fr       */
+/*   Updated: 2023/02/23 10:16:55 by nde-la-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	int		i;
 	int		j;	
 
-	new_string = (char *)malloc(ft_strlen(s1) + ft_strlen(s2));
+	new_string = (char *)malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
 	if (new_string == NULL)
 		return (NULL);
 	i = 0;
@@ -34,6 +34,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		j++;
 		i++;
 	}
+	new_string[i] = '\0';
 	return (new_string);
 }
 /*

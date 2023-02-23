@@ -6,9 +6,11 @@
 /*   By: nde-la-f <nde-la-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 08:35:33 by nde-la-f          #+#    #+#             */
-/*   Updated: 2023/02/22 11:14:50 by nde-la-f         ###   ########.fr       */
+/*   Updated: 2023/02/23 12:59:39 by nde-la-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 #include "libft.h"
 
@@ -38,34 +40,49 @@ static int	ft_countwords(char const *s, char c)
 	return (count);
 }
 
+static char	*ft_word_dup(char const *s, char c)
+{
+	size_t	len;
+	char	*word;
+
+	len = 0;
+	while (s[len] && s[len] != c)
+		len++;
+	word = (char *)malloc((len + 1) * sizeof(char));
+	if (!word)
+		return (NULL);
+	ft_strlcpy(word, s, len + 1);
+	return (word);
+}
+
 char	**ft_split(char const *s, char c)
 {
-	int			j;
-	int			i;
-	char		**arr;
-	int			len;
+	char	**arr;
+	int		count;
+	int		i;
 
-	arr = (char **)malloc((ft_countwords(s, c) + 1) * sizeof(char *));
+	if (!s)
+		return (NULL);
+	count = ft_countwords(s, c);
+	arr = (char **)malloc((count + 1) * sizeof(char *));
+	if (!arr)
+		return (NULL);
 	i = 0;
-	j = 0;
-	while (s[i])
+	while (i < count)
 	{
-		if (s[i] != c)
-		{
-			len = 0;
-			while (s[i + len] && s[i + len] != c)
-				len++;
-			arr[j] = (char *)malloc((len + 1) * sizeof(char));
-			ft_strlcpy(arr[j], s + i, len + 1);
-			arr[j][len] = '\0';
-			j++;
-			i += len;
-		}
-		else
-			i++;
+		while (*s && *s == c)
+			s++;
+		arr[i] = ft_word_dup(s, c);
+		if (!arr[i])
+			return (NULL);
+		while (*s && *s != c)
+			s++;
+		i++;
 	}
+	arr[i] = NULL;
 	return (arr);
 }
+
 /*
 int main(void)
 {
@@ -86,62 +103,42 @@ int main(void)
 */
 
 /*
-ft_countwords:
+The code includes the header file "libft.h".
+The function ft_countwords is defined as static, which means it can only be
+used in the same file. ft_word_count takes in two arguments, a string s and 
+a character c, and returns an integer that represents the number of words
+in s separated by the character c. The function ft_word_dup is also defined 
+as static and takes in the same arguments as ft_word_count. It creates a 
+copy of a word in s that is separated by c and returns a pointer to the copy.
+ft_split is a function that takes in a string s and a character c. It splits
+the string s into an array of strings, where each string is separated by 
+the character c.
+The function ft_split returns a pointer to the array of strings.
+If s is NULL, ft_split returns NULL.
 
-1. The function takes two arguments, a pointer to a constant character array 
-   (string) s, and a character c.
+The function ft_word_count counts the number of words in s separated by c
+by iterating through the string and counting each time a word is found. A 
+word is found when a character that is not equal to c is encountered, and 
+the function iterates through the word until it reaches the next occurrence 
+of c or the end of the string.
 
-2. It initializes two integer variables, count and i, to 0.
-
-3. The while loop checks whether s[i] is not null character. If it is not,
-   then the loop continues, otherwise it exits the loop.
-
-4. If s[i] is not equal to the character c, then the count variable is
-   incremented and another while loop is executed that increments i until
-   either s[i] is a null character or s[i] is equal to the character c.
-
-5. If s[i] is equal to the character c, then i is incremented.
-
-6. The function returns the count variable.
-*/
-
-/* 
-ft_split:
-
-1. The function takes two arguments, a pointer to a constant character
-   array (string) s, and a character c.
-
-2. It initializes four integer variables, j, i, and len to 0, and 
-   declares a double pointer to a character array (string), arr.
-
-3. It allocates memory for arr to store the number of words
-   (delimited by the character c) in s by calling ft_countwords 
-   function and adding 1 to include the terminating NULL pointer.
-   The size of each element in arr is sizeof(char *).
-
-4. The while loop checks whether s[i] is not a null character.
-   If it is not,  then the loop continues, otherwise it exits the loop.
-
-5. If s[i] is not equal to the character c, then the len variable is
-   set to 0 and another while loop is executed that increments len 
-   until either s[i + len] is a null character or s[i + len] is equal
-   to the character c.
-
-6. Memory is allocated for arr[j] to store the current word by calling 
-   malloc function. The size of each element in arr[j] is
-   (len + 1) * sizeof(char).
-
-7. The ft_strlcpy function is called to copy len + 1 characters from
-   s + i to arr[j]. This ensures that the last character of arr[j] is
-   a null character, making it a valid C string.
-
-8. The null character is explicitly added at the end of arr[j].
-
-9. The j variable is incremented, and the i variable is incremented
-   by len.
-
-10. If s[i] is equal to the character c, then i is incremented.
-
-11. The function returns arr, a double pointer to the array of strings
-    that represent the words in s.
+The function ft_word_dup creates a copy of a word in s separated by c by 
+iterating through the word and copying each character into a new string. 
+The new string is then returned.
+In ft_split, ft_word_count is called to get the number of words in s 
+separated by c. ft_split then allocates memory for an array of strings of 
+size count + 1 to store the strings that will be created.
+If memory allocation fails, ft_split returns NULL.
+A variable i is set to 0, and a loop is started that iterates i from 0 to 
+count - 1. Within this loop:
+Any leading occurrences of c are skipped by incrementing s until a 
+character that is not equal to c is found.
+ft_word_dup is called to create a copy of the current word, and the pointer
+to the copy is stored in the ith element of the array.
+If memory allocation fails in ft_word_dup, ft_split returns NULL.
+The loop continues by incrementing s until the next occurrence of c is 
+found or the end of the string is reached.
+After the loop completes, the count element of the array is set to NULL to 
+mark the end of the array.
+The array of strings is then returned.
 */

@@ -6,7 +6,7 @@
 /*   By: nde-la-f <nde-la-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 18:09:51 by nde-la-f          #+#    #+#             */
-/*   Updated: 2023/02/22 09:16:35 by nde-la-f         ###   ########.fr       */
+/*   Updated: 2023/02/23 12:23:52 by nde-la-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ int	ft_atoi(const char *str)
 	sign = 1;
 	i = 0;
 	num = 0;
-	while (str[i] == ' ' || (str[i] >= '\t' && str[i] <= '\f'))
+	while (str[i] == ' ' || (str[i] >= '\t' && str[i] <= '\r'))
 		i++;
 	if (str[i] == '+' || str[i] == '-')
 		if (str[i++] == '-')
 			sign = -1;
-	while (str[i] >= '0' && str[i] <= '9')
+	while (ft_isdigit(str[i]))
 	{
 		num = num * 10 + (str[i] - '0');
 		i++;

@@ -6,7 +6,7 @@
 /*   By: nde-la-f <nde-la-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 10:40:35 by nde-la-f          #+#    #+#             */
-/*   Updated: 2023/02/22 10:00:05 by nde-la-f         ###   ########.fr       */
+/*   Updated: 2023/02/23 13:09:01 by nde-la-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,13 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	i = 0;
 	while (i < n)
 	{
-		if (*(unsigned char *)(s1 + i) && *(unsigned char *)(s2 + i))
-			return (*(unsigned char *)(s1 + i) - *(unsigned char *)(s2 + i));
+		if (*((unsigned char *)s1 + i) != *((unsigned char *)s2 + i))
+			return (*((unsigned char *)s1 + i) - *((unsigned char *)s2 + i));
 		i++;
 	}
 	return (0);
 }
+
 /*
 int main(void)
 {

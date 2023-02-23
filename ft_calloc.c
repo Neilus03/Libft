@@ -6,7 +6,7 @@
 /*   By: nde-la-f <nde-la-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 11:59:26 by nde-la-f          #+#    #+#             */
-/*   Updated: 2023/02/22 09:36:17 by nde-la-f         ###   ########.fr       */
+/*   Updated: 2023/02/23 09:48:35 by nde-la-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	*ft_calloc(size_t count, size_t size)
 	ptr = (void *)malloc(count * size);
 	if (!ptr)
 		return (NULL);
-	ft_bzero(ptr, count);
+	ft_bzero(ptr, count * size);
 	return (ptr);
 }
 /*

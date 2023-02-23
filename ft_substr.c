@@ -6,7 +6,7 @@
 /*   By: nde-la-f <nde-la-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 10:18:25 by nde-la-f          #+#    #+#             */
-/*   Updated: 2023/02/22 11:57:54 by nde-la-f         ###   ########.fr       */
+/*   Updated: 2023/02/23 10:12:36 by nde-la-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,16 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char			*substring;
 	unsigned int	i;
-	size_t			j;	
+	size_t			j;
 
+	if (start >= ft_strlen(s))
+		return (ft_strdup(""));
 	substring = (char *)malloc(len + 1);
 	if (substring == NULL)
 		return (NULL);
-	i = 0;
-	while (i < start)
-		i++;
+	i = start;
 	j = 0;
-	while (j <= len)
+	while (j < len && s[i])
 	{
 		substring[j] = s[i];
 		j++;
@@ -51,7 +51,7 @@ from the string `s`, starting from the index `start`.
 
 6. Initialize a counter `j` to 0.
 
-7. Enter a loop that continues while `j` is less than or equal to `len`.
+7. Enter a loop that continues while `j` is less than `len` and s[i] != NULL.
 
 8. Copy the character at position `i` of `s` to the `j`th position of the 
    new substring.

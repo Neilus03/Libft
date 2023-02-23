@@ -6,7 +6,7 @@
 /*   By: nde-la-f <nde-la-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 09:20:03 by nde-la-f          #+#    #+#             */
-/*   Updated: 2023/02/22 13:12:11 by nde-la-f         ###   ########.fr       */
+/*   Updated: 2023/02/23 13:24:13 by nde-la-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	while (s1[i] && s2[i] && i < n)
 	{
 		if (ft_strcmp(&s1[i], &s2[i]) != 0)
-			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+			return (ft_strcmp(&s1[i], &s2[i]));
 		i++;
 	}
 	if (i < n)

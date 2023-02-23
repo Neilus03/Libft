@@ -6,7 +6,7 @@
 /*   By: nde-la-f <nde-la-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 11:18:21 by nde-la-f          #+#    #+#             */
-/*   Updated: 2023/02/22 13:17:24 by nde-la-f         ###   ########.fr       */
+/*   Updated: 2023/02/23 10:23:10 by nde-la-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	char			*str;
 
 	start = 0;
-	if (s1 == NULL)
-		return (NULL);
+	if (s1 == NULL || s1[0] == '\0')
+		return (ft_strdup(""));
 	end = ft_strlen(s1) - 1;
 	while (start <= end && in_set(set, s1[start]))
 		start++;
