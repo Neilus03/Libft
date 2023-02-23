@@ -6,32 +6,11 @@
 /*   By: nde-la-f <nde-la-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 19:01:26 by nde-la-f          #+#    #+#             */
-/*   Updated: 2023/02/15 13:06:58 by nde-la-f         ###   ########.fr       */
+/*   Updated: 2023/02/22 13:11:46 by nde-la-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
-#include <unistd.h>
-#include <stdio.h>
-
-/*
-There's an error " error: linker command failed with exit code 1 " that is
-caused due to the incorrect linking of ft_strlen function.
-So I decided to write them down here so the error doesn't cause problems.
-*/
-size_t	ft_strlen(const char *str)
-{
-	size_t	len;
-
-	len = 0;
-	while (*str != '\0')
-	{
-		len++;
-		str++;
-	}
-	return (len);
-}
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t len_dst)
 {
@@ -72,4 +51,22 @@ int main(void)
 	printf("dst: %s\n", dst);
 	return (0);
 }
+*/
+/*
+1. If either dst or src is NULL, return 0.
+
+2. Initialize src_len to the length of src.
+
+3. If len_dst is 0, return src_len.
+
+4. Initialize i to 0.
+
+5. Enter a loop that continues while i is less than len_dst - 1 and
+   src[i] is not null.
+
+6. Append src[i] to dst and increment i and dst_len.
+
+7. Add a null terminator to the end of dst.
+
+8. Return src_len.
 */

@@ -6,15 +6,11 @@
 /*   By: nde-la-f <nde-la-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 10:18:25 by nde-la-f          #+#    #+#             */
-/*   Updated: 2023/02/15 12:57:08 by nde-la-f         ###   ########.fr       */
+/*   Updated: 2023/02/22 11:57:54 by nde-la-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <string.h>
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
@@ -38,6 +34,37 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	substring[j] = '\0';
 	return (substring);
 }
+
+/*
+The `ft_substr` function creates a new string by extracting `len` characters
+from the string `s`, starting from the index `start`.
+
+1. Allocate memory for the new substring.
+
+2. Check if memory allocation was successful. If not, return `NULL`.
+
+3. Initialize a counter `i` to 0.
+
+4. Enter a loop that continues while `i` is less than `start`.
+
+5. Increment `i`.
+
+6. Initialize a counter `j` to 0.
+
+7. Enter a loop that continues while `j` is less than or equal to `len`.
+
+8. Copy the character at position `i` of `s` to the `j`th position of the 
+   new substring.
+
+9. Increment `j`.
+
+10. Increment `i`.
+
+11. Set the character at the `j`th position of the new substring to a
+    null byte.
+
+12. Return the new substring.
+*/
 /*
 int main()
 {

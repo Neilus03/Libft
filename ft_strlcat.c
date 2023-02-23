@@ -6,7 +6,7 @@
 /*   By: nde-la-f <nde-la-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 14:56:21 by nde-la-f          #+#    #+#             */
-/*   Updated: 2023/01/22 13:00:02 by nde-la-f         ###   ########.fr       */
+/*   Updated: 2023/02/22 13:11:38 by nde-la-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,23 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 		dst_len++;
 	return (dst_len);
 }
-//unfinished code
+/* 
+1. Initialize dst_len to the length of dst.
+
+2. Initialize i to 0.
+
+3. If size is less than the length of dst, return the sum of the length of
+   src and size.
+
+4. Enter a loop that continues while size is greater than 0, dst_len is less
+   than size - 1, and src[i] is not null.
+
+5. Append src[i] to dst and increment dst_len and i.
+
+6. Add a null terminator to the end of dst.
+
+7. Enter a loop that continues while src[i] is not null and increment
+   dst_len and i.
+
+8. Return dst_len.
+*/

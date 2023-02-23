@@ -6,28 +6,11 @@
 /*   By: nde-la-f <nde-la-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 10:48:47 by nde-la-f          #+#    #+#             */
-/*   Updated: 2023/02/15 13:05:22 by nde-la-f         ###   ########.fr       */
+/*   Updated: 2023/02/22 13:11:18 by nde-la-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <string.h>
-
-size_t	ft_strlen(const char *str)
-{
-	size_t	len;
-
-	len = 0;
-	while (*str != '\0')
-	{
-		len++;
-		str++;
-	}
-	return (len);
-}
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
@@ -67,4 +50,17 @@ int main()
 
     return (0);
 }
+*/
+/* 
+1. Allocate memory for the new string, with the size of both s1 and
+   s2 combined.
+   
+2. If the allocation fails, return NULL.
+
+3. Copy the characters from s1 to the new string, one by one.
+
+4. Copy the characters from s2 to the new string, starting from where 
+   s1 left off.
+
+5. Return the new string. 
 */

@@ -6,52 +6,11 @@
 /*   By: nde-la-f <nde-la-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 08:01:59 by nde-la-f          #+#    #+#             */
-/*   Updated: 2023/02/16 08:27:12 by nde-la-f         ###   ########.fr       */
+/*   Updated: 2023/02/22 13:16:46 by nde-la-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <string.h>
-#include <stdio.h>
-#include <stdlib.h>
-
-/*
-There's an error " error: linker command failed with exit code 1 " that is
-caused due to the incorrect linking of ft_strlen and ft_strlcpy functions.
-So I decided to write it down here so the error doesn't cause problems.
-*/
-size_t	ft_strlen(const char *str)
-{
-	size_t	len;
-
-	len = 0;
-	while (*str != '\0')
-	{
-		len++;
-		str++;
-	}
-	return (len);
-}
-
-size_t	ft_strlcpy(char *dst, const char *src, size_t len_dst)
-{
-	size_t	src_len;
-	size_t	i;
-
-	if (!dst || !src)
-		return (0);
-	src_len = ft_strlen(src);
-	if (len_dst == 0)
-		return (src_len);
-	i = 0;
-	while (i < len_dst - 1 && src[i])
-	{
-		dst[i] = src[i];
-		i++;
-	}
-	dst[i] = '\0';
-	return (src_len);
-}
 
 char	*ft_strdup(const char *s1)
 {
@@ -84,4 +43,16 @@ int main(void)
     
     return 0;
 }
+*/
+
+/* 
+1. Calculate the length of s1 and add 1 for the null terminator.
+
+2. Allocate memory of len * sizeof(char) bytes and assign the pointer to dst.
+
+3. If dst is NULL, return NULL.
+
+4. Copy the contents of s1 to dst using ft_strlcpy.
+
+5. Return dst. 
 */

@@ -6,29 +6,11 @@
 /*   By: nde-la-f <nde-la-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 13:04:07 by nde-la-f          #+#    #+#             */
-/*   Updated: 2023/02/19 14:42:57 by nde-la-f         ###   ########.fr       */
+/*   Updated: 2023/02/23 09:01:36 by nde-la-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <string.h>
-#include <ctype.h>
-
-size_t	ft_strlen(const char *str)
-{
-	size_t	len;
-
-	len = 0;
-	while (*str != '\0')
-	{
-		len++;
-		str++;
-	}
-	return (len);
-}
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
@@ -36,6 +18,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	char		*res;
 	size_t		i;
 
+	res = NULL;
 	if (s && f)
 	{
 		len = ft_strlen(s) + 1;
@@ -52,6 +35,21 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	}
 	return (res);
 }
+/*
+1. If s and f are not NULL:
+  a. Compute the length of s and add 1 to allocate enough memory for the
+     null terminator.
+  b. Allocate memory for the new string and check if it is successful.
+  c. Set the last character of the new string to the null terminator.
+  d. Initialize i to 0 and loop through s:
+    i. Set the character at the ith index of the new string to the result of
+	   applying f to the ith index of s and i.
+    ii. Increment i.
+  e. Return the new string.
+
+2. If s or f is NULL, return NULL.
+*/
+
 /*
 char add_five(unsigned int i, char c)
 {

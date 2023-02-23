@@ -6,51 +6,11 @@
 /*   By: nde-la-f <nde-la-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 11:18:21 by nde-la-f          #+#    #+#             */
-/*   Updated: 2023/02/15 13:13:40 by nde-la-f         ###   ########.fr       */
+/*   Updated: 2023/02/22 13:17:24 by nde-la-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <string.h>
-
-char	*ft_substr(char const *s, unsigned int start, size_t len)
-{
-	char			*substring;
-	unsigned int	i;
-	size_t			j;	
-
-	substring = (char *)malloc(len + 1);
-	if (substring == NULL)
-		return (NULL);
-	i = 0;
-	while (i < start)
-		i++;
-	j = 0;
-	while (j <= len)
-	{
-		substring[j] = s[i];
-		j++;
-		i++;
-	}
-	substring[j] = '\0';
-	return (substring);
-}
-
-size_t	ft_strlen(const char *str)
-{
-	size_t	len;
-
-	len = 0;
-	while (*str != '\0')
-	{
-		len++;
-		str++;
-	}
-	return (len);
-}
 
 static int	in_set(char const *set, char c)
 {
@@ -89,11 +49,51 @@ char	*ft_strtrim(char const *s1, char const *set)
 	str[len] = '\0';
 	return (str);
 }
+
+/*
+The `ft_strtrim` function creates a new string that is a copy of the input
+string `s1`, with leading and trailing characters from the character set
+`set` removed.
+
+1. Initialize a variable `start` to 0.
+
+2. If the input string `s1` is `NULL`, return `NULL`.
+
+3. Initialize a variable `end` to the length of the input string `s1` minus 1.
+
+4. Enter a loop that continues while `start` is less than or equal to `end` and
+   the character at the `start` position of `s1` is a member of the character
+   set `set`.
+
+5. Increment the variable `start` by 1.
+
+6. Enter a loop that continues while `end` is greater than `start` and the
+   character at the `end` position of `s1` is a member of the character set
+   `set`.
+
+7. Decrement the variable `end` by 1.
+
+8. Calculate the length of the new string by subtracting `start` from `end` and
+   adding 1.
+
+9. Allocate memory for the new string using the `malloc` function.
+
+10. Check if memory allocation was successful. If it was not successful,
+    return `NULL`.
+
+11. Create a new string by calling the `ft_substr` function with the input
+    string `s1`, the `start` position, and the calculated length.
+
+12. Set the character at the end of the new string to a null byte.
+
+13. Return the new string.
+*/
+
 /*
 int main()
 {
     char *str = "    hello world    ";
-    char *set = " ";
+    char *set = "hd";
     char *trimmed_str = ft_strtrim(str, set);
 
     if (trimmed_str == NULL) {

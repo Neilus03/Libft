@@ -6,16 +6,13 @@
 /*   By: nde-la-f <nde-la-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 09:20:03 by nde-la-f          #+#    #+#             */
-/*   Updated: 2023/02/15 13:07:48 by nde-la-f         ###   ########.fr       */
+/*   Updated: 2023/02/22 13:12:11 by nde-la-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
 
-int	ft_strcmp(const char *s1, const char *s2)
+static int	ft_strcmp(const char *s1, const char *s2)
 {
 	if ((unsigned char)s1 != (unsigned char)s2)
 		return ((unsigned char)s1 - (unsigned char)s2);
@@ -37,6 +34,39 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 		return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 	return (0);
 }
+/*
+1. The `ft_strcmp` function compares the two strings `s1` and `s2`.
+
+2. Cast `s1` and `s2` as unsigned characters and compare them.
+
+3. If the characters differ, return the difference between the unsigned
+   chars.
+
+4. If the characters are equal, continue comparing the next characters.
+
+5. If both strings are equal, return 0.
+
+
+1. The `ft_strncmp` function compares at most `n` characters of the two
+   strings `s1` and `s2`.
+
+2. Initialize `i` to 0.
+
+3. Enter a loop that continues while the character at position `i` of
+  `s1` and `s2` are not null and `i` is less than `n`.
+
+4. If the characters differ, return the difference between the unsigned chars.
+
+5. If the characters are equal, continue comparing the next characters.
+
+6. If `n` characters are compared and both strings are equal, return 0.
+
+7. If `i` is less than `n` and `s1[i]` is not equal to `s2[i]`, return the
+   difference between the unsigned chars at the `i`th position.
+
+8. If `i` is equal to `n` and all characters are equal, return 0.
+*/
+
 /*
 int main(void)
 {

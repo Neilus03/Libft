@@ -6,14 +6,11 @@
 /*   By: nde-la-f <nde-la-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 10:40:35 by nde-la-f          #+#    #+#             */
-/*   Updated: 2023/02/19 12:49:18 by nde-la-f         ###   ########.fr       */
+/*   Updated: 2023/02/22 10:00:05 by nde-la-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
@@ -47,4 +44,24 @@ int main(void)
 
     return 0;
 }
+*/
+
+/*
+1. The function ft_memcmp takes two pointers to constant void (s1 and s2) and a
+   size_t type argument (n) as its arguments.
+
+2. Inside the function, a variable i is declared and initialized to 0.
+
+3. A while loop is entered.
+
+4. Inside the while loop, the function checks if both *(unsigned char *)(s1 + i)
+   and *(unsigned char *)(s2 + i) are not 0 (i.e., if they are not NULL).
+
+5. If the condition in step 4 is true, the difference between the two characters
+   is returned (i.e., *(unsigned char *)(s1 + i) - *(unsigned char *)(s2 + i)).
+
+6. If the condition in step 4 is not true, i is incremented by 1.
+
+7. Once the end of the loop is reached, the function returns 0, which indicates
+   that the two memory blocks are identical.
 */

@@ -1,46 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nde-la-f <nde-la-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/17 13:33:22 by nde-la-f          #+#    #+#             */
+/*   Created: 2023/02/21 09:17:19 by nde-la-f          #+#    #+#             */
 /*   Updated: 2023/02/22 13:10:07 by nde-la-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *str)
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	size_t	len;
-
-	len = 0;
-	while (*str != '\0')
+	if (lst)
 	{
-		len++;
-		str++;
+		del(lst -> content);
+		free (lst);
 	}
-	return (len);
 }
 /*
-int main()
-{
-    const char a[] = "Programs";
-    printf("%zu",ft_strlen(a));
-	printf("\n");
-    printf("%lu",strlen(a));
+1. The function ft_lstdelone takes two arguments: lst, which is a pointer to 
+   a t_list structure, and del, which is a function pointer to a function used
+   to free the memory of the content element of the list.
 
-    return 0;
-}
-*/
-/*
-1. Initialize len to 0.
+2. If lst is not NULL, the function enters an if statement.
 
-2. Enter a loop that continues while the character pointed to by str is not null.
+3. Inside the if statement, del is called with lst->content as an argument
+   to free the memory of the content element of the list.
 
-3. Increment len and str.
+4. The lst pointer is then freed using the free function.
 
-4. Return len.
+5. The function returns.
 */

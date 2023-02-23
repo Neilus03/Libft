@@ -6,7 +6,7 @@
 /*   By: nde-la-f <nde-la-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 11:50:27 by nde-la-f          #+#    #+#             */
-/*   Updated: 2023/02/15 12:26:00 by nde-la-f         ###   ########.fr       */
+/*   Updated: 2023/02/22 13:12:43 by nde-la-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,3 +31,24 @@ char	*ft_strrchr(const char *str, int c)
 	}
 	return (NULL);
 }
+/*
+ The `ft_strrchr` function searches for the last occurrence of the character
+ `c` in the string `str`.
+
+1. Get the length of the string `str`.
+
+2. Check if the last character in the string is a null byte. If it is, return 
+   `NULL`.
+
+3. Initialize a counter `j` to the length of the string `str`.
+
+4. Enter a loop that continues while the character at the `j`th position
+   of `str` is not a null byte.
+
+5. If the character at the `j`th position of `str` is equal to `c`, return a
+   pointer to the `j`th position of `str`.
+
+6. Decrement `j`.
+
+7. If no occurrence of the character `c` is found, return `NULL`.
+*/
