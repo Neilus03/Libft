@@ -6,7 +6,7 @@
 /*   By: nde-la-f <nde-la-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 10:18:25 by nde-la-f          #+#    #+#             */
-/*   Updated: 2023/02/23 10:12:36 by nde-la-f         ###   ########.fr       */
+/*   Updated: 2023/02/24 18:46:24 by nde-la-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,14 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	char			*substring;
 	unsigned int	i;
 	size_t			j;
+	size_t			s_len;
 
-	if (start >= ft_strlen(s))
+	s_len = ft_strlen(s);
+	if (start >= s_len)
 		return (ft_strdup(""));
-	substring = (char *)malloc(len + 1);
+	if (len > s_len - start)
+		len = s_len - start;
+	substring = (char *)malloc((len + 1) * sizeof(char));
 	if (substring == NULL)
 		return (NULL);
 	i = start;

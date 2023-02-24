@@ -6,11 +6,9 @@
 /*   By: nde-la-f <nde-la-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 08:35:33 by nde-la-f          #+#    #+#             */
-/*   Updated: 2023/02/23 12:59:39 by nde-la-f         ###   ########.fr       */
+/*   Updated: 2023/02/24 21:07:36 by nde-la-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 #include "libft.h"
 
@@ -38,6 +36,17 @@ static int	ft_countwords(char const *s, char c)
 			i++;
 	}
 	return (count);
+}
+
+static char	*free_list(char **arr)
+{
+	int	i;
+
+	i = 0;
+	while (arr[i])
+		free(arr[i++]);
+	free(arr);
+	return (NULL);
 }
 
 static char	*ft_word_dup(char const *s, char c)
@@ -74,7 +83,7 @@ char	**ft_split(char const *s, char c)
 			s++;
 		arr[i] = ft_word_dup(s, c);
 		if (!arr[i])
-			return (NULL);
+			free_list(arr);
 		while (*s && *s != c)
 			s++;
 		i++;
@@ -82,12 +91,11 @@ char	**ft_split(char const *s, char c)
 	arr[i] = NULL;
 	return (arr);
 }
-
 /*
 int main(void)
 {
-    char *str = "the quick brown fox";
-    char **arr = ft_split(str, 'w');
+    char *str = "hello!";
+    char **arr = ft_split(str, ' ');
 	int i = 0;
     if (arr == NULL)
 		return ((int)NULL);
@@ -99,8 +107,7 @@ int main(void)
 	}
 	free(arr);
     return (0);
-}
-*/
+}*/
 
 /*
 The code includes the header file "libft.h".
