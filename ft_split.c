@@ -6,7 +6,7 @@
 /*   By: nde-la-f <nde-la-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 08:35:33 by nde-la-f          #+#    #+#             */
-/*   Updated: 2023/02/25 13:00:51 by nde-la-f         ###   ########.fr       */
+/*   Updated: 2023/02/25 14:21:49 by nde-la-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,10 @@ static int	ft_countwords(char const *s, char c)
 	return (count);
 }
 
-static char	*free_list(char **arr)
+static char	**free_arr(char **arr, int i)
 {
-	int	i;
-
-	i = 0;
-	while (arr[i])
-		free(arr[i++]);
+	while (i--)
+		free(arr[i]);
 	free(arr);
 	return (NULL);
 }
@@ -75,6 +72,7 @@ char	**ft_split(char const *s, char c)
 	arr = (char **)malloc((count + 1) * sizeof(char *));
 	if (!arr)
 		return (NULL);
+	arr[count] = NULL;
 	i = 0;
 	while (i < count)
 	{
@@ -82,12 +80,11 @@ char	**ft_split(char const *s, char c)
 			s++;
 		arr[i] = ft_word_dup(s, c);
 		if (!arr[i])
-			free_list(arr);
+			return (free_arr(arr, i));
 		while (*s && *s != c)
 			s++;
 		i++;
 	}
-	arr[i] = NULL;
 	return (arr);
 }
 /*
@@ -104,10 +101,11 @@ int main(void)
 		i++;
 		write (1, "\n", 1);
 	}
+	printf("%d/n", ft_countwords(str, ' '));
 	free(arr);
     return (0);
-}*/
-
+}
+*/
 /*
 The code includes the header file "libft.h".
 The function ft_countwords is defined as static, which means it can only be
