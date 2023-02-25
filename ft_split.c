@@ -6,12 +6,11 @@
 /*   By: nde-la-f <nde-la-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 08:35:33 by nde-la-f          #+#    #+#             */
-/*   Updated: 2023/02/24 21:07:36 by nde-la-f         ###   ########.fr       */
+/*   Updated: 2023/02/25 13:00:51 by nde-la-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
 /*
 ft_countwords aims to count the amount of words in a sentence. Understanding
 a word as the group of characters delimited by the c delimiter.
